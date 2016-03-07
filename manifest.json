@@ -1,0 +1,9 @@
+{
+  "manifest_version": 2,
+  "name": "Time Motivation",
+  "description": "Percentage completion of different time periods",
+  "version": "1.1",
+  "chrome_url_overrides" : {
+    "newtab": "charts.html"
+  }
+}
