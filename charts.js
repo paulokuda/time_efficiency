@@ -66,10 +66,25 @@ function drawChart() {
     }]
   });
 };
-function start(){
-  console.log("stuff: " + $('#container').highcharts().series[0]);
+function update(){
+  var now = new Date();
+  var hour = now.getHours();
+  var year = now.getFullYear();
+  var month = now.getMonth() + 1;
+  var seconds = now.getSeconds();
+  var minutes = now.getMinutes();
+  console.log("minites: " + minutes*100/60);
+  var dayPercentage = Math.round(hour*100/24);
+  var weekPercentage = Math.round(now.getDay()*100/7);
+  var yearPercentage = (month*100/12)
+  var monthPercentage = Math.round(now.getDate()*100/daysInMonth(month, year));
+  var hourPercentage = Math.round(minutes*100/60)
+  var minutePerentage = Math.round(seconds*100/60);
+  var chart = $("#container").highcharts();
+  chart.series[0].setData([minutePerentage, hourPercentage, dayPercentage, weekPercentage, monthPercentage, yearPercentage]);
+  // console.log("stuff: " + chart.series[0]);
 }
-start()
+setInterval(update, 1000);
 
 // setTimeout(drawChart, 1000);
 // setInterval(drawChart, 1000)
